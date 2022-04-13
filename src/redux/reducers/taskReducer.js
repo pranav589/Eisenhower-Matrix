@@ -93,16 +93,6 @@ const taskReducer = (state = persistedData, action) => {
       newState.tasks[action.id] = { id: action.id, content: action.content };
       newState.columns[action.columnId].taskIds.push(action.id);
       break;
-    case DELETE_TASK:
-      delete newState.tasks[action.taskId];
-      for (let columnKey in newState.columns) {
-        let column = newState.columns[columnKey];
-        column.taskIds = column.taskIds.filter((t) => t !== action.taskId);
-      }
-      break;
-    case EDIT_TASK:
-      newState.tasks[action.id].content = action.content;
-      break;
     default:
       return newState;
   }
