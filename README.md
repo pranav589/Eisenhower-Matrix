@@ -4,7 +4,7 @@
 1. Created 2x2 UI matrix
 2. Count for each list
 3. Form to add items
-4. Dragging a item
+4. Drag and Drop a item
+5. State persist on refresh
 
-## Tried but wasn't successful
-1. Drop a item
+
