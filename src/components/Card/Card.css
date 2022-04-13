@@ -1,0 +1,27 @@
+.card__container{
+    width: 100%;
+    height: 100%;
+    color: white;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0.1rem;
+}
+
+.card__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card__content__item{
+    width: 90%;
+    margin: 0.5rem auto;
+    height: 100%;
+    border: 1px solid white;
+    background-color: lightgrey ;
+    margin-bottom: 0.2rem;
+    padding: 0.1rem;
+    border-radius: 5px;
+    color: black;
+}
