@@ -95,9 +95,8 @@ function App() {
       <Typography variant="h4" className="header">
         Eisenhower Matrix Assignment
       </Typography>
-      <Card>
-        <AddTodo />
-      </Card>
+      <AddTodo />
+      <Card />
     </DragDropContext>
   );
 }

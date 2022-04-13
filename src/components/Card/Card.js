@@ -3,11 +3,10 @@ import { useSelector } from "react-redux";
 import DropContainer from "../DropContainer/DropContainer";
 import "./Card.css";
 
-function Card({ children }) {
+function Card() {
   const taskData = useSelector((state) => state.task);
   return (
     <div className="card__container">
-      {children}
       <div className="card__contain">
         <div className="card__card green">
           <DropContainer column={taskData.columns.doFirst} />
