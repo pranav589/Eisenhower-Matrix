@@ -1,6 +1,4 @@
 .card__container{
-    width: 100%;
-    height: 100%;
     color: white;
     border-radius: 0.2rem;
     overflow: hidden;
@@ -14,6 +12,37 @@
     justify-content: space-around;
 }
 
+.card__contain{
+    display: flex;
+    justify-content: center;
+}
+
+.card__card{
+    width:40%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.green{
+    background-color: green !important;
+    margin-right: 1rem;
+}
+
+
+.blue{
+    background-color: blue;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.red{
+    background-color: red;
+    margin-right: 1rem;
+}
+
 .card__content__item{
     width: 90%;
     margin: 0.5rem auto;
@@ -21,7 +50,7 @@
     border: 1px solid white;
     background-color: lightgrey ;
     margin-bottom: 0.2rem;
-    padding: 0.1rem;
+    padding: 0.5rem;
     border-radius: 5px;
     color: black;
 }

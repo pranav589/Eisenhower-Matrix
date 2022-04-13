@@ -1,115 +1,30 @@
 import React from "react";
-import { Draggable, Droppable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
-import Todo from "../Todo/Todo";
+import DropContainer from "../DropContainer/DropContainer";
 import "./Card.css";
 
-function Card({ color, title, flagId, id }) {
-  const todosDoFirst = useSelector((state) => state.todo.doFirst);
-  const todosSchedule = useSelector((state) => state.todoSchedule.scheduleTodo);
-  const todosDelegate = useSelector((state) => state.todoDelegate.delegateTodo);
-  const todosCancel = useSelector((state) => state.todoCancel.cancelTodo);
-
-  const todosFirstLength = todosDoFirst.length;
-  const todosScheduleLength = todosSchedule.length;
-  const todosDelegateLength = todosDelegate.length;
-  const todosCancelLength = todosCancel.length;
-
+function Card({ children }) {
+  const taskData = useSelector((state) => state.task);
   return (
-    <div className="card__container" style={{ backgroundColor: color }}>
-      {flagId === "doFirst" && (
-        <div>
-          <div className="card__title">
-            {title} Count-{todosFirstLength}
-          </div>
-          <Droppable droppableId={id}>
-            {(provided, snapshot) => {
-              return (
-                <div
-                  className="card__content"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
-                  {todosDoFirst?.map((todo, index) => (
-                    <Todo todo={todo} index={index} key={todo.id} />
-                  ))}
-                  {provided.placeholder}
-                </div>
-              );
-            }}
-          </Droppable>
+    <div className="card__container">
+      {children}
+      <div className="card__contain">
+        <div className="card__card green">
+          <DropContainer column={taskData.columns.doFirst} />
         </div>
-      )}
-      {flagId === "schedule" && (
-        <div>
-          <div className="card__title">
-            {title} Count-{todosScheduleLength}
-          </div>
-          <Droppable droppableId={id}>
-            {(provided, snapshot) => {
-              return (
-                <div
-                  className="card__content"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
-                  {todosSchedule?.map((todo, index) => (
-                    <Todo todo={todo} index={index} key={todo.id} />
-                  ))}
-                  {provided.placeholder}
-                </div>
-              );
-            }}
-          </Droppable>
+        <div className="card__card blue">
+          <DropContainer column={taskData.columns.schedule} />
         </div>
-      )}
+      </div>
 
-      {flagId === "delegate" && (
-        <div>
-          <div className="card__title">
-            {title} Count-{todosDelegateLength}
-          </div>
-          <Droppable droppableId={id}>
-            {(provided, snapshot) => {
-              return (
-                <div
-                  className="card__content"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
-                  {todosDelegate?.map((todo, index) => (
-                    <Todo todo={todo} index={index} key={todo.id} />
-                  ))}
-                  {provided.placeholder}
-                </div>
-              );
-            }}
-          </Droppable>
+      <div className="card__contain">
+        <div className="card__card red">
+          <DropContainer column={taskData.columns.delegate} />
         </div>
-      )}
-      {flagId === "cancel" && (
-        <div>
-          <div className="card__title">
-            {title} Count-{todosCancelLength}
-          </div>
-          <Droppable droppableId={id}>
-            {(provided, snapshot) => {
-              return (
-                <div
-                  className="card__content"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
-                  {todosCancel?.map((todo, index) => (
-                    <Todo todo={todo} index={index} key={todo.id} />
-                  ))}
-                  {provided.placeholder}
-                </div>
-              );
-            }}
-          </Droppable>
+        <div className="card__card orange">
+          <DropContainer column={taskData.columns.eliminate} />
         </div>
-      )}
+      </div>
     </div>
   );
 }
