@@ -1,8 +1,6 @@
 const MOVE_WITHIN_COLUMN = "move_within_column";
 const MOVE_ACROSS_COLUMN = "move_across_column";
-const DELETE_TASK = "delete_task";
 const ADD_TASK = "add_task";
-const EDIT_TASK = "edit_task";
 
 const persistedData = (function readPersistedData() {
   if (!localStorage.getItem("matrixData")) {
@@ -64,16 +62,8 @@ export const moveAcrossColumn = (
   };
 };
 
-export const deleteTask = (taskId) => {
-  return { type: DELETE_TASK, taskId };
-};
-
 export const addTask = (id, content, columnId) => {
   return { type: ADD_TASK, id, content, columnId };
-};
-
-export const editTask = (id, content) => {
-  return { type: EDIT_TASK, id, content };
 };
 
 const taskReducer = (state = persistedData, action) => {
